@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ryders Shift Schedule - Year at a Glance</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Monoton&family=Russo+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Sarpanch:wght@600&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="schedule.css">
+</head>
+
+<body class="size-medium">
+  <div class="page-wrapper">
+
+    <div class="header-row">
+      <div class="title-block">
+        <h1>Ryders Shift Schedule</h1>
+        <small>Year at a glance · click for shift, right-click for holiday, Alt+click for vacation</small>
+      </div>
+
+      <div class="controls">
+        <label for="yearInput">Year:</label>
+        <input id="yearInput" type="number">
+        <button id="applyYearBtn">Apply year</button>
+
+        <button id="printBtn">Print</button>
+
+        <!-- NEW: export / import controls -->
+        <button id="exportBtn" type="button">Export</button>
+        <button id="importBtn" type="button">Import</button>
+        <input id="importFile" type="file" accept="application/json" style="display:none">
+
+        <label for="sizeSelect">Size:</label>
+        <select id="sizeSelect">
+          <option value="small">Small</option>
+          <option value="medium" selected>Medium</option>
+          <option value="large">Large</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-group">
+        <div class="legend-row">
+          <span class="legend-swatch swatch-day">D</span>
+          <span>Day 06:30–14:30</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-swatch swatch-eve">E</span>
+          <span>Evening 14:30–22:30</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-swatch swatch-night">N</span>
+          <span>Night 22:30–06:30 (starts previous day)</span>
+        </div>
+      </div>
+
+      <div class="legend-group">
+        <div class="legend-row">
+          <span class="legend-swatch swatch-holiday"></span>
+          <span>Holiday: purple border</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-swatch swatch-vacation"></span>
+          <span>Vacation: neon green underline</span>
+        </div>
+        <div class="legend-note">
+          Example: an N shift marked as holiday begins 22:30 the previous day.
+        </div>
+      </div>
+    </div>
+
+    <div id="calendar" class="calendar-grid"></div>
+
+    <div id="status" class="status">
+      Left-click to cycle shift • Right-click holiday • Alt+click vacation
+    </div>
+
+  </div>
+
+  <!-- External JS -->
+  <script src="schedule.js"></script>
+</body>
+</html>
